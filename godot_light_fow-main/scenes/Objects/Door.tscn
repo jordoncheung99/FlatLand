@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://7rby4dsekbar"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Door.gd" id="1_qhj0h"]
+[ext_resource type="AudioStream" uid="uid://dw6wt0pmdp4g6" path="res://Audio/opening-metal-door-199581.mp3" id="2_nbtee"]
+
+[sub_resource type="Gradient" id="Gradient_55xdp"]
+colors = PackedColorArray(0.65098, 1, 1, 1, 0.694118, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioinq"]
+gradient = SubResource("Gradient_55xdp")
+width = 32
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqpdp"]
+size = Vector2(32, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x1jkl"]
+polygon = PackedVector2Array(0, -3, 32, -3, 32, 4, 0, 4)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_qhj0h")
+
+[node name="DoorHalfRight" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorHalfRight"]
+position = Vector2(16, 0)
+texture = SubResource("GradientTexture2D_ioinq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorHalfRight"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_tqpdp")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="DoorHalfRight"]
+occluder = SubResource("OccluderPolygon2D_x1jkl")
+
+[node name="DoorHalfLeft" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorHalfLeft"]
+position = Vector2(-16, 0)
+texture = SubResource("GradientTexture2D_ioinq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorHalfLeft"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_tqpdp")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="DoorHalfLeft"]
+position = Vector2(-32, 0)
+occluder = SubResource("OccluderPolygon2D_x1jkl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nbtee")

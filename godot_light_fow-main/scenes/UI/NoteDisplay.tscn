@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ajigvmej6kv"]
+
+[ext_resource type="Script" path="res://Scripts/UI/NoteDisplay.gd" id="1_xomcf"]
+
+[node name="NoteDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xomcf")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 362.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+text = "something something"

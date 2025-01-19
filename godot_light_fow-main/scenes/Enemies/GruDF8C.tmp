@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8wexbk4dkaar"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Grunt.gd" id="1_47bm5"]
+
+[sub_resource type="Gradient" id="Gradient_5j3a0"]
+colors = PackedColorArray(0, 0.859486, 0.987297, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8cn8p"]
+gradient = SubResource("Gradient_5j3a0")
+width = 16
+height = 16
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyovy"]
+radius = 8.0
+
+[node name="Grunt" type="CharacterBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_47bm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_8cn8p")
+
+[node name="LineofSight" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fyovy")

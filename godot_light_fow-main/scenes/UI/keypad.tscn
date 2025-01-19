@@ -1,0 +1,177 @@
+[gd_scene load_steps=9 format=3 uid="uid://pqpkqonqlg3h"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Keypad.gd" id="1_jn0ve"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_pibj2"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="InputEventKey" id="InputEventKey_5hpk5"]
+device = -1
+keycode = 4194308
+
+[sub_resource type="Shortcut" id="Shortcut_3oo8q"]
+events = [SubResource("InputEventKey_pibj2"), SubResource("InputEventKey_5hpk5")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5ehk7"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_q82p7"]
+device = -1
+keycode = 4194310
+
+[sub_resource type="Shortcut" id="Shortcut_qlxai"]
+events = [SubResource("InputEventKey_5ehk7"), SubResource("InputEventKey_q82p7")]
+
+[sub_resource type="Theme" id="Theme_38ubg"]
+
+[node name="Keypad" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jn0ve")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 362.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Button1" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+
+[node name="Button4" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "4"
+
+[node name="Button5" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
+
+[node name="Button6" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "6"
+
+[node name="Button7" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "7"
+
+[node name="Button8" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "8"
+
+[node name="Button9" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "9"
+
+[node name="ButtonClear" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+shortcut = SubResource("Shortcut_3oo8q")
+text = "c"
+
+[node name="Button0" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+
+[node name="ButtonOk" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+shortcut = SubResource("Shortcut_qlxai")
+text = "OK"
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = SubResource("Theme_38ubg")
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "X"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/ButtonClear" to="." method="_on_button_clear_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/ButtonOk" to="." method="_on_button_ok_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer2/ExitButton" to="." method="_on_exit_button_pressed"]

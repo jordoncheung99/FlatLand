@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv2ra5k1ql1sh"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Gun.gd" id="1_c043m"]
+[ext_resource type="AudioStream" uid="uid://cig1i7cm6d5br" path="res://Audio/GunSounds1.mp3" id="2_0s8ck"]
+[ext_resource type="AudioStream" uid="uid://bpynjoddu4ais" path="res://Audio/GunSounds2.mp3" id="3_tyklx"]
+[ext_resource type="AudioStream" uid="uid://bdysqujwxh88s" path="res://Audio/GunSounds3.mp3" id="4_agyil"]
+
+[node name="GunSystem" type="Node2D"]
+script = ExtResource("1_c043m")
+
+[node name="Bullet_Parent" type="Node2D" parent="."]
+
+[node name="SoundPlayer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0s8ck")
+
+[node name="SoundPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tyklx")
+
+[node name="SoundPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_agyil")

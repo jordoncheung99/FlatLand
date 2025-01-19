@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmml4tkrs4i42"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Pistol_bullet.gd" id="1_d74uo"]
+[ext_resource type="Texture2D" uid="uid://rub6n76ut5y1" path="res://textures/lights/flame.png" id="2_72dtv"]
+
+[sub_resource type="Gradient" id="Gradient_y3lo8"]
+colors = PackedColorArray(0.942063, 0.880673, 2.69532e-06, 1, 0.90652, 0.623167, 0.140309, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g3laj"]
+gradient = SubResource("Gradient_y3lo8")
+width = 12
+height = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt7et"]
+size = Vector2(12, 2)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_d74uo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_g3laj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xt7et")
+
+[node name="BulletLight" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 2.4
+shadow_item_cull_mask = 11
+texture = ExtResource("2_72dtv")
+texture_scale = 4.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

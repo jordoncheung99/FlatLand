@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsqu8yttbyio6"]
+
+[ext_resource type="Texture2D" uid="uid://rub6n76ut5y1" path="res://textures/lights/flame.png" id="1_gsowq"]
+[ext_resource type="Script" path="res://Scripts/Player/MuzzleFlash.gd" id="2_cj14a"]
+
+[node name="MuzzleFlash" type="PointLight2D"]
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("1_gsowq")
+texture_scale = 16.0
+script = ExtResource("2_cj14a")

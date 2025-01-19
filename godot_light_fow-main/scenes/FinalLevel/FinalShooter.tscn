@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxlt4hgbevk57"]
+
+[ext_resource type="Script" path="res://Scripts/FinalLevel/FireNode.gd" id="1_5ftv1"]
+
+[node name="FinalShooter" type="Node2D"]
+script = ExtResource("1_5ftv1")

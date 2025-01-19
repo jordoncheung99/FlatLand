@@ -1,0 +1,225 @@
+[gd_scene load_steps=17 format=3 uid="uid://dkbxk7rn3h0lv"]
+
+[ext_resource type="Script" path="res://World.gd" id="1_061dn"]
+[ext_resource type="PackedScene" uid="uid://ba07kn2ollll2" path="res://fow/fow_light.tscn" id="1_tluii"]
+[ext_resource type="Texture2D" uid="uid://rub6n76ut5y1" path="res://textures/flame.png" id="2_l3ldu"]
+[ext_resource type="Texture2D" uid="uid://i0ccxwtbe6nw" path="res://icon.png" id="5_lmstc"]
+[ext_resource type="Texture2D" uid="uid://ccy314l06w8ji" path="res://textures/fog_texture.png" id="6_0ipbe"]
+[ext_resource type="PackedScene" uid="uid://cespah8oiyt6f" path="res://scenes/player.tscn" id="7_ix4mv"]
+
+[sub_resource type="Gradient" id="Gradient_ygemo"]
+offsets = PackedFloat32Array(0, 0.00649351, 0.012987)
+colors = PackedColorArray(0, 0, 0, 1, 0.188312, 0.188312, 0.188312, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r5dwj"]
+gradient = SubResource("Gradient_ygemo")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_11rig"]
+polygon = PackedVector2Array(361, 211, 340, 199, 333.931, 184.529, 327, 168, 324, 143, 336, 130, 345, 118, 377, 95, 399, 87, 424, 85, 446, 88, 470, 95, 497, 110, 520, 126, 524, 139, 522, 151, 511, 155, 501, 147, 486, 133, 462, 118, 435, 114, 414, 110, 387, 116, 365, 128, 349, 147, 350, 166, 359, 183, 374, 190, 399, 190, 421, 189, 437, 192, 442, 196, 444, 203, 439, 209, 420, 212, 392, 214)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_akmf6"]
+polygon = PackedVector2Array(411, 132, 429, 133, 444, 140, 448, 149, 449, 159, 445, 167, 431, 172, 420, 174, 404, 172, 394, 163, 395, 151, 399, 138)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vknc2"]
+polygon = PackedVector2Array(596, 219, 645, 219, 645, 163, 669, 163, 669, 218, 693, 170, 710, 180, 686, 228, 734, 228, 734, 245, 685, 245, 685, 282, 702, 281, 702, 260, 746, 260, 746, 212, 712, 212, 733, 171, 687, 149, 680, 169, 679, 137, 628, 138, 628, 197, 583, 197)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4fw6e"]
+polygon = PackedVector2Array(424, 234, 467, 234, 488, 238, 488, 303, 467, 302, 469, 253, 422, 252)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oceec"]
+polygon = PackedVector2Array(212, 369, 248, 371, 270, 378, 292, 388, 310, 412, 310, 422, 310, 446, 298, 466, 282, 482, 256, 494, 236, 494, 264, 472, 274, 451, 274, 427, 266, 405, 249, 388, 229, 376)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cr5wb"]
+polygon = PackedVector2Array(589, 460, 575, 446, 549, 442, 533, 464, 544, 494, 563, 501, 602, 507, 636, 499, 636, 467, 628, 441, 587, 412, 538, 407, 498, 425, 484, 477, 507, 532, 550, 555, 609, 558, 605, 574, 535, 570, 486, 543, 468, 479, 481, 422, 535, 393, 595, 399, 639, 431, 638, 434, 649, 467, 647, 504, 605, 516, 560, 511, 539, 501, 523, 462, 546, 431, 576, 437, 594, 454)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cg7nl"]
+polygon = PackedVector2Array(742, 101, 808, 102, 810, 149, 745, 149)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h4bbe"]
+polygon = PackedVector2Array(780, 605, 807, 495, 830, 605, 856, 491, 883, 602, 905, 488, 935, 599, 965, 487, 993, 596, 1021, 597, 959, 444, 934, 555, 902, 444, 881, 551, 852, 444, 830, 548, 805, 441, 758, 604, 782, 706, 801, 647, 819, 707, 842, 645, 875, 706, 898, 647, 930, 707, 942, 646, 984, 706, 992, 643, 1042, 705, 1030, 629, 1029, 674, 985, 625, 978, 681, 939, 632, 926, 674, 895, 625, 876, 684, 840, 625, 820, 679, 801, 629, 783, 672)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_061dn")
+metadata/movie_file = "C:\\Users\\Hudson\\Downloads\\test_movie_maker.mp4"
+
+[node name="OtherStuff" type="TextureRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture2D_r5dwj")
+
+[node name="LightOccluders" type="Node" parent="OtherStuff"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(-176, -5.99998)
+occluder = SubResource("OccluderPolygon2D_11rig")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(-176, -5.99998)
+occluder = SubResource("OccluderPolygon2D_akmf6")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(-176, -5.99998)
+occluder = SubResource("OccluderPolygon2D_vknc2")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+occluder = SubResource("OccluderPolygon2D_4fw6e")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(-59, 48)
+occluder = SubResource("OccluderPolygon2D_oceec")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+occluder = SubResource("OccluderPolygon2D_cr5wb")
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D8" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(3, 80)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D9" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(4, 163)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D10" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(10, 242)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D11" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(105, 241)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D12" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(99, 165)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D13" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(95, 83)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D14" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(93, -1)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D15" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(187, 1)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D16" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(190, 80)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D17" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(190, 166)
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D18" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+position = Vector2(194, 240)
+skew = -0.218166
+occluder = SubResource("OccluderPolygon2D_cg7nl")
+
+[node name="LightOccluder2D19" type="LightOccluder2D" parent="OtherStuff/LightOccluders" groups=["occluders"]]
+occluder = SubResource("OccluderPolygon2D_h4bbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(200, 142)
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(518, 179)
+scale = Vector2(0.196797, 0.196797)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(34.34, 334.66)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(177, 477)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D6" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(564, 470)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D12" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(560, 530)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D7" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(804, 609)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D8" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(1040, 249)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D9" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(870, 166)
+scale = Vector2(0.426875, 0.426875)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D10" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(966, 540)
+scale = Vector2(0.275935, 0.307188)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D11" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(58, 665)
+scale = Vector2(1.18484, 1.23172)
+texture = ExtResource("5_lmstc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="OtherStuff"]
+position = Vector2(454, 269)
+scale = Vector2(0.275004, 0.275004)
+texture = ExtResource("5_lmstc")
+
+[node name="StationaryLight" type="PointLight2D" parent="OtherStuff" groups=["lights"]]
+position = Vector2(339, 308)
+color = Color(0.192157, 0.54902, 1, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("2_l3ldu")
+texture_scale = 8.0
+
+[node name="StationaryLight2" type="PointLight2D" parent="OtherStuff" groups=["lights"]]
+position = Vector2(449, 471)
+color = Color(1, 0.0901961, 0.462745, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("2_l3ldu")
+texture_scale = 8.0
+
+[node name="Light" type="PointLight2D" parent="OtherStuff" groups=["lights"]]
+position = Vector2(291.554, 40.8915)
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.4
+shadow_item_cull_mask = 3
+texture = ExtResource("2_l3ldu")
+texture_scale = 8.0
+
+[node name="FOW" parent="." instance=ExtResource("1_tluii")]
+offset_right = 1080.0
+offset_bottom = 720.0
+fog_texture = ExtResource("6_0ipbe")
+fow_scale_factor = 0.5
+
+[node name="Player" parent="." instance=ExtResource("7_ix4mv")]
+position = Vector2(100, 100)
+
+[connection signal="on_light_moved" from="." to="FOW" method="on_light_moved"]
+[connection signal="on_light_moved" from="Player" to="FOW" method="on_light_moved_rotation"]

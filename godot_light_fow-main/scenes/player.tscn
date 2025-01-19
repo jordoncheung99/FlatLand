@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://cespah8oiyt6f"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_s0g22"]
+[ext_resource type="Texture2D" uid="uid://rub6n76ut5y1" path="res://textures/lights/flame.png" id="2_aneiv"]
+[ext_resource type="Texture2D" uid="uid://dvxwq4p5bx33o" path="res://textures/lights/Flashlight.png" id="2_t6t7i"]
+[ext_resource type="Texture2D" uid="uid://djq0x3h7fcpxh" path="res://textures/Assets/Heart.png" id="4_qyuha"]
+
+[sub_resource type="Gradient" id="Gradient_3gfhb"]
+offsets = PackedFloat32Array(0.012987, 0.811688)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0u7xb"]
+gradient = SubResource("Gradient_3gfhb")
+width = 16
+height = 16
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_luav2"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_s0g22")
+speed = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_0u7xb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_luav2")
+
+[node name="Flashlight" type="PointLight2D" parent="." groups=["lights"]]
+position = Vector2(10, 0)
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.4
+shadow_item_cull_mask = 3
+texture = ExtResource("2_t6t7i")
+texture_scale = 3.0
+
+[node name="CharacterLight" type="PointLight2D" parent="." groups=["lights"]]
+energy = 4.0
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.4
+shadow_item_cull_mask = 3
+texture = ExtResource("2_aneiv")
+texture_scale = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="H1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(511, 28)
+scale = Vector2(0.7, 0.683)
+texture = ExtResource("4_qyuha")
+
+[node name="H2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(511, 77)
+scale = Vector2(0.7, 0.683)
+texture = ExtResource("4_qyuha")
+
+[node name="H3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(511, 121)
+scale = Vector2(0.7, 0.683)
+texture = ExtResource("4_qyuha")
+
+[node name="H4" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(512, 168)
+scale = Vector2(0.7, 0.683)
+texture = ExtResource("4_qyuha")
+
+[node name="H5" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(513, 216)
+scale = Vector2(0.7, 0.683)
+texture = ExtResource("4_qyuha")

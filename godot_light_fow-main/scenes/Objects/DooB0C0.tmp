@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://7rby4dsekbar"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Door.gd" id="1_qhj0h"]
+
+[sub_resource type="Gradient" id="Gradient_55xdp"]
+colors = PackedColorArray(0.65098, 1, 1, 1, 0.694118, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioinq"]
+gradient = SubResource("Gradient_55xdp")
+width = 32
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqpdp"]
+size = Vector2(32, 16)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_qhj0h")
+
+[node name="DoorHalfRight" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorHalfRight"]
+position = Vector2(16, 0)
+texture = SubResource("GradientTexture2D_ioinq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorHalfRight"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_tqpdp")
+
+[node name="DoorHalfLeft" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorHalfLeft"]
+position = Vector2(-16, 0)
+texture = SubResource("GradientTexture2D_ioinq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorHalfLeft"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_tqpdp")

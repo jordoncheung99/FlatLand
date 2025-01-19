@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b18aet55tenpq"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Button.gd" id="1_ay5lo"]
+[ext_resource type="Texture2D" uid="uid://e3tfvpib8wlv" path="res://textures/Assets/Keypad.png" id="2_lg2ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp3uw"]
+
+[node name="Button" type="Area2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ay5lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gp3uw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_lg2ua")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

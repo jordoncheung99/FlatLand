@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b18aet55tenpq"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Button.gd" id="1_ay5lo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp3uw"]
+
+[sub_resource type="Gradient" id="Gradient_n4ckb"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.0627451, 0.0627451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tg8vo"]
+gradient = SubResource("Gradient_n4ckb")
+width = 16
+height = 16
+
+[node name="Button" type="Area2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ay5lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gp3uw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_tg8vo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

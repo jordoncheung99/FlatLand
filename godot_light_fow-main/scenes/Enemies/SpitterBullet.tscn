@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgbr4a7o577y6"]
+
+[ext_resource type="Texture2D" uid="uid://rub6n76ut5y1" path="res://textures/lights/flame.png" id="1_f0mt4"]
+[ext_resource type="Script" path="res://Scripts/Enemies/SpitterBullet.gd" id="1_m5ssb"]
+
+[sub_resource type="Gradient" id="Gradient_01j8c"]
+colors = PackedColorArray(0.545098, 1, 0.239216, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1gs1d"]
+gradient = SubResource("Gradient_01j8c")
+width = 12
+height = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5job"]
+size = Vector2(12, 2)
+
+[node name="SpitterBullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_m5ssb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_1gs1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l5job")
+
+[node name="BulletLight" type="PointLight2D" parent="."]
+color = Color(0, 1, 0, 1)
+blend_mode = 2
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("1_f0mt4")
+texture_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

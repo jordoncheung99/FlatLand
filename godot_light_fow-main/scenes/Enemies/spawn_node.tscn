@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2kq2gq3y8kxs"]
+
+[ext_resource type="Texture2D" uid="uid://crl8plg5t0o2s" path="res://textures/Vent.png" id="1_qo0w6"]
+[ext_resource type="Script" path="res://Scripts/Enemies/SpawnNode.gd" id="1_tt52k"]
+
+[node name="SpawnNode" type="Node2D"]
+script = ExtResource("1_tt52k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qo0w6")
